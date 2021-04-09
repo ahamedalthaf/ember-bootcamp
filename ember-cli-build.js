@@ -1,10 +1,12 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const ENV = require('./config/environment')(process.env.EMBER_ENV);
 
 module.exports = function(defaults) {
+  let { OPTIONS } = ENV;
   let app = new EmberApp(defaults, {
-    // Add options here
+      ...OPTIONS
   });
 
   // Use `app.import` to add additional libraries to the generated

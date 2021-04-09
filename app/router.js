@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('interns', function() {
+    this.route('show', { path: '/:id' });
+    this.route('new');
+  });
 });
 
 export default Router;

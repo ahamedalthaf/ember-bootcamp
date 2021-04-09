@@ -1,0 +1,34 @@
+
+{{#link-to "interns.new" }} Create New Intern {{/link-to}}
+<br>
+<br>
+ 
+{{!-- {{sample "test1"}} --}}
+
+<table border="1">
+<tr>
+	<th>Intern Name</th>
+	<th>Team Name</th>
+</tr>
+
+{{#each model as |intern|}}
+	<tr>
+		<td>{{#link-to "interns.show" intern.id }} {{intern.name}} {{/link-to}}</td>
+		<td>{{intern.team}}</td>
+		<td>{{input value=intern.name}}</td>
+		<td><button type="button" {{action "delete" intern.id}}>Delete</button></td>
+		<td><button type="button" {{action "update" intern.id}}>update</button></td>
+	</tr>
+{{/each}}
+</table>
+
+
+<button type="button" {{action "toggleBanner" showBanner}}>toggle banner</button>
+
+<div> ShowBanner: {{showBanner}} </div>
+
+{{#if showBanner}}
+	I am a new banner
+{{/if}}
+
+{{outlet}}
